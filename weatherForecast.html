@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Weather Forecast</h1>
+    <div id="locationInput">
+        <input type="text" id="addressInput" placeholder="Enter city name">
+        <button onclick="getWeatherForecast()">Get Forecast</button>
+    </div>
+    <div id="forecastDetails">Forecast will be displayed here...</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="currentWeather.html">Current Weather</a></li>
+            <li><a href="currentTime.html">Current Time</a></li>
+        </ul>
+    </nav>
+    <script src="script.js"></script>
+    <script>
+        function getWeatherForecast() {
+            const address = document.getElementById('addressInput').value;
+            console.log(`Getting weather forecast for city: ${address}`);
+            if (address.trim() === '') {
+                alert('Please enter a city name.');
+                return;
+            }
+            geocodeAddress(address, (coords) => {
+                fetchWeatherForecast(coords.latitude, coords.longitude);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Weather</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Current Weather</h1>
+    <div id="locationInput">
+        <input type="text" id="addressInput" placeholder="Enter your address">
+        <button onclick="getWeatherForAddress()">Get Weather</button>
+    </div>
+    <div id="currentWeather">
+        <h2>Weather Details</h2>
+        <p id="currentWeatherDetails">Weather data will be displayed here...</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="currentTime.html">Current Time</a></li>
+            <li><a href="weatherForecast.html">Weather Forecast</a></li>
+        </ul>
+    </nav>
+    <script src="script.js"></script>
+</body>
+</html>

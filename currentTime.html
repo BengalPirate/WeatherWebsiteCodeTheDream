@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Current Time</h1>
+    <div id="locationInput">
+        <input type="text" id="addressInput" placeholder="Enter your address">
+        <button onclick="getCurrentTime()">Get Current Time</button>
+    </div>
+    <div id="currentTime">Current Time: Time will be displayed here...</div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="currentWeather.html">Current Weather</a></li>
+            <li><a href="weatherForecast.html">Weather Forecast</a></li>
+        </ul>
+    </nav>
+    <script src="script.js"></script>
+    <script>
+        function getCurrentTime() {
+            const address = document.getElementById('addressInput').value;
+            console.log(`Getting current time for address: ${address}`);
+            if (address.trim() === '') {
+                alert('Please enter a valid address.');
+                return;
+            }
+            geocodeAddress(address, (coords) => {
+                fetchTimeZoneByCoords(coords.latitude, coords.longitude, (timeZoneData) => {
+                    console.log('Time Zone Data:', timeZoneData);
+                    displayCurrentTime(timeZoneData);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
