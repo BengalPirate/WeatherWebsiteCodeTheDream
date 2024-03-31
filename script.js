@@ -203,17 +203,17 @@ function updateBackgroundBasedOnCurrentHourWeather(data) {
 
     const backgroundMap = {
         '0': 'clear_sky.png',
-        '1': 'mainly_clear.png', '2': 'partly_cloudy.jpg', '3': 'overcast.png',
-        '45': 'fog.jpg', '48': 'rime_fog.jpg',
-        '51': 'light_drizzle.jpg', '53': 'moderate_drizzle.jpg', '55': 'dense_drizzle.jpg',
-        '56': 'light_freezing_drizzle.jpg', '57': 'dense_freezing_drizzle.jpg',
-        '61': 'light_rain.jpg', '63': 'moderate_rain.jpg', '65': 'heavy_rain.jpg',
-        '66': 'light_freezing_rain.jpg', '67': 'heavy_freezing_rain.jpg',
-        '71': 'light_snow.jpg', '73': 'moderate_snow.jpg', '75': 'heavy_snow.jpg',
+        '1': 'mainly_clear.png', '2': 'partly_cloudy.png', '3': 'overcast.png',
+        '45': 'fog.png', '48': 'rime_fog.png',
+        '51': 'light_drizzle.png', '53': 'moderate_drizzle.png', '55': 'dense_drizzle.png',
+        '56': 'light_freezing_drizzle.png', '57': 'dense_freezing_drizzle.png',
+        '61': 'light_drizzle.png', '63': 'moderate_drizzle.png', '65': 'dense_drizzle.png',
+        '66': 'light_freezing_drizzle.png', '67': 'dense_freezing_drizzle.png',
+        '71': 'light_snow.png', '73': 'moderate_snow.png', '75': 'heavy_snow.png',
         '77': 'snow_grains.png',
-        '80': 'slight_rain_showers.jpg', '81': 'moderate_rain_showers.jpg', '82': 'violent_rain_showers.jpg',
-        '85': 'light_snow_showers.jpg', '86': 'heavy_snow_showers.jpg',
-        '95': 'thunderstorm.png', '96': 'thunderstorm_light_hail.jpg', '99': 'thunderstorm_heavy_hail.jpg'
+        '80': 'light_drizzle.png', '81': 'moderate_drizzle.png', '82': 'dense_drizzle.png',
+        '85': 'snow_showers.png', '86': 'snow_showers.png',
+        '95': 'thunderstorm.png', '96': 'thunderstorm.png', '99': 'thunderstorm.png'
     };
 
     // Default image if weather code is not in the map
@@ -229,15 +229,31 @@ function updateBackgroundBasedOnCurrentHourWeather(data) {
 }
 
 
-// Update displayCurrentTime to not set an interval inside it
 function displayCurrentTime(timeZoneData) {
-    // Function to update the display time
+    // Function to calculate and update the display time
     const updateTime = () => {
-        const timeString = timeZoneData.time_24; // Or timeZoneData.time_12 for 12-hour format
+        // Get the user's time zone offset in minutes from the timeZoneData
+        const userTimeZoneOffset = timeZoneData.timezone_offset; // Assuming this is in hours, e.g., "-4" for UTC-4
+
+        // Get the current UTC date and time
+        const nowUTC = new Date();
+
+        // Convert the user's time zone offset to milliseconds
+        const userOffsetMs = userTimeZoneOffset * 3600 * 1000;
+
+        // Calculate the local time in the user's time zone
+        const localTime = new Date(nowUTC.getTime() + userOffsetMs);
+
+        // Format the time string as you prefer, here it's in HH:MM:SS format
+        const timeString = localTime.toISOString().substr(11, 8); // Extract time part from the ISO string
+
+        // Display the calculated local time
         document.getElementById('currentTime').textContent = `Current Time: ${timeString}`;
     };
 
-    // Immediately update the time
+    // Immediately update the time and set an interval to update it every second
     updateTime();
+    setInterval(updateTime, 1000); // Update the time every second
 }
+
 
