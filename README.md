@@ -16,3 +16,5 @@ In order to quickly test the code for the website follow the following steps
 <a href="https://www.loom.com/share/daf9ec413b004459b4477a986f3807aa">
   <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/daf9ec413b004459b4477a986f3807aa-with-play.gif">
 </a>
+
+The code above makes use of the Open-Meteo (https://open-meteo.com) API as well as the ipgeolocation (https://ipgeolocation.io) API
