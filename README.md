@@ -6,7 +6,7 @@ https://d04797c5-b5eb-4779-b5cb-5b5a67538be4-00-3o24sp0hafpbi.kirk.replit.dev
 
 In order to quickly test the code for the website follow the following steps
 
-1. Create an Acoount/Login with replit.com
+1. Create an Acoount/Login with https://replit.com/
 2. Click on the button to the top left that says "+ Create Repl"
 3. Select the option for HTML, CSS, JS and then the button "+ Create Repl"
 4. Delete all of the exisiting files in the left field
