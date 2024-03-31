@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Open-Meteo Weather Dashboard</h1>
+    <div id="currentTime">Time here</div>
+    <div id="currentWeather">
+        <h2>Current Weather</h2>
+        <p id="currentWeatherDetails">Loading...</p>
+    </div>
+    <div id="weatherForecast">
+        <h2>Weather Forecast</h2>
+        <div id="forecastDetails">Loading...</div>
+    </div>
+    <div id="locationInput">
+        <input type="text" id="addressInput" placeholder="Enter your address">
+        <button onclick="getWeatherForAddress()">Get Weather</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
