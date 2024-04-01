@@ -1,9 +1,5 @@
 # WeatherWebsite
 
-The following link is a developer link to a working version fo the website utilizing replit
-
-https://d04797c5-b5eb-4779-b5cb-5b5a67538be4-00-3o24sp0hafpbi.kirk.replit.dev
-
 In order to quickly test the code for the website follow the following steps
 
 1. Create an Acoount/Login with https://replit.com/
